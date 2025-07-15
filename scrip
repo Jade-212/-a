@@ -1,0 +1,97 @@
+const cursos = [
+  { id: 'mat', nombre: 'MATEMÁTICA', ciclo: 1, req: [], creditos: 3 },
+  { id: 'com', nombre: 'COMUNICACIÓN Y REDACCIÓN', ciclo: 1, req: [], creditos: 3 },
+  { id: 'met', nombre: 'METODOLOGÍA DEL TRABAJO UNIVERSITARIO', ciclo: 1, req: [], creditos: 3 },
+  { id: 'bio', nombre: 'BIOLOGÍA GENERAL', ciclo: 1, req: [], creditos: 3 },
+  { id: 'qui', nombre: 'QUÍMICA GENERAL', ciclo: 1, req: [], creditos: 3 },
+  { id: 'ing1', nombre: 'INGLÉS I', ciclo: 1, req: [], creditos: 3 },
+  { id: 'rec', nombre: 'RECURSOS NATURALES', ciclo: 1, req: [], creditos: 4 },
+  { id: 'eco', nombre: 'ECOLOGÍA Y AMBIENTE', ciclo: 2, req: [], creditos: 3 },
+  { id: 'real', nombre: 'REALIDAD NACIONAL E INTERNACIONAL', ciclo: 2, req: [], creditos: 3 },
+  { id: 'fil', nombre: 'FILOSOFÍA, ÉTICA Y SOCIEDAD', ciclo: 2, req: [], creditos: 3 },
+  { id: 'est', nombre: 'ESTADÍSTICA', ciclo: 2, req: [], creditos: 3 },
+  { id: 'biof', nombre: 'BIOFÍSICA', ciclo: 2, req: [], creditos: 3 },
+  { id: 'ing2', nombre: 'INGLÉS II', ciclo: 2, req: [], creditos: 3 },
+  { id: 'cel', nombre: 'BIOLOGÍA CELULAR', ciclo: 2, req: [], creditos: 4 },
+  { id: 'calc', nombre: 'CÁLCULO Y ECUACIONES DIFERENCIALES', ciclo: 3, req: ['mat'], creditos: 4 },
+  { id: 'botc', nombre: 'BOTÁNICA CRIPTOGÁMICA', ciclo: 3, req: ['bio'], creditos: 4 },
+  { id: 'org', nombre: 'QUÍMICA ORGÁNICA', ciclo: 3, req: ['qui'], creditos: 3 },
+  { id: 'bqest', nombre: 'BIOQUÍMICA ESTRUCTURAL', ciclo: 3, req: [], creditos: 4 },
+  { id: 'inv', nombre: 'ZOOLOGÍA DE INVERTEBRADOS', ciclo: 3, req: ['bio'], creditos: 4 },
+  { id: 'metinv', nombre: 'METODOLOGÍA DE LA INVESTIGACIÓN', ciclo: 3, req: [], creditos: 3 },
+  { id: 'botf', nombre: 'BOTÁNICA FANEROGÁMICA', ciclo: 4, req: ['botc'], creditos: 4 },
+  { id: 'fisq', nombre: 'FISICOQUÍMICA', ciclo: 4, req: [], creditos: 3 },
+  { id: 'analq', nombre: 'ANÁLISIS QUÍMICO E INSTRUMENTAL', ciclo: 4, req: [], creditos: 4 },
+  { id: 'zoo', nombre: 'ZOOLOGÍA DE VERTEBRADOS', ciclo: 4, req: ['inv'], creditos: 4 },
+  { id: 'dise', nombre: 'DISEÑOS EXPERIMENTALES', ciclo: 4, req: ['est'], creditos: 3 },
+  { id: 'bqmet', nombre: 'BIOQUÍMICA METABÓLICA', ciclo: 4, req: ['bqest'], creditos: 4 },
+  { id: 'mic', nombre: 'MICROBIOLOGÍA', ciclo: 5, req: [], creditos: 4 },
+  { id: 'fisia', nombre: 'FISIOLOGÍA ANIMAL', ciclo: 5, req: ['biof'], creditos: 4 },
+  { id: 'gen', nombre: 'GENÉTICA', ciclo: 5, req: ['bqmet'], creditos: 4 },
+  { id: 'anat', nombre: 'ANATOMÍA', ciclo: 5, req: [], creditos: 3 },
+  { id: 'para', nombre: 'PARASITOLOGÍA', ciclo: 5, req: [], creditos: 4 },
+  { id: 'bact', nombre: 'BACTERIOLOGÍA', ciclo: 6, req: ['mic'], creditos: 4 },
+  { id: 'viro', nombre: 'VIROLOGÍA', ciclo: 6, req: [], creditos: 4 },
+  { id: 'fisv', nombre: 'FISIOLOGÍA VEGETAL', ciclo: 6, req: ['bqmet'], creditos: 4 },
+  { id: 'hist', nombre: 'HISTOLOGÍA', ciclo: 6, req: [], creditos: 3 },
+  { id: 'eco2', nombre: 'ECOLOGÍA', ciclo: 6, req: ['eco'], creditos: 4 },
+  { id: 'fico', nombre: 'FICOLOGÍA', ciclo: 7, req: ['botc'], creditos: 3 },
+  { id: 'inmu', nombre: 'INMUNOLOGÍA', ciclo: 7, req: [], creditos: 4 },
+  { id: 'mico', nombre: 'MICOLOGÍA', ciclo: 7, req: ['mic'], creditos: 4 },
+  { id: 'mol', nombre: 'BIOLOGÍA MOLECULAR', ciclo: 7, req: ['bqest'], creditos: 4 },
+  { id: 'fism', nombre: 'FISIOLOGÍA MICROBIANA', ciclo: 7, req: ['mic'], creditos: 4 },
+  { id: 'clin', nombre: 'ANÁLISIS CLÍNICO', ciclo: 8, req: [], creditos: 5 },
+  { id: 'acu', nombre: 'MICROBIOLOGÍA ACUÁTICA', ciclo: 8, req: [], creditos: 3 },
+  { id: 'suelo', nombre: 'MICROBIOLOGÍA DE SUELOS', ciclo: 8, req: [], creditos: 3 },
+  { id: 'fito', nombre: 'FITOPATOLOGÍA', ciclo: 8, req: ['mico'], creditos: 5 },
+  { id: 'genmic', nombre: 'GENÉTICA MICROBIANA', ciclo: 8, req: ['mol'], creditos: 3 },
+  { id: 'alimentos', nombre: 'MICROBIOLOGÍA DE ALIMENTOS', ciclo: 9, req: [], creditos: 4 },
+  { id: 'ind', nombre: 'MICROBIOLOGÍA INDUSTRIAL', ciclo: 9, req: [], creditos: 4 },
+  { id: 'inv1', nombre: 'TALLER DE INVESTIGACIÓN I', ciclo: 9, req: ['metinv'], creditos: 4 },
+  { id: 'calamb', nombre: 'CALIDAD AMBIENTAL', ciclo: 9, req: [], creditos: 3 },
+  { id: 'clinic', nombre: 'MICROBIOLOGÍA CLÍNICA', ciclo: 9, req: [], creditos: 4 },
+  { id: 'biotec', nombre: 'BIOTECNOLOGÍA', ciclo: 10, req: ['ind'], creditos: 4 },
+  { id: 'amb', nombre: 'MICROBIOLOGÍA AMBIENTAL', ciclo: 10, req: [], creditos: 3 },
+  { id: 'inv2', nombre: 'TALLER DE INVESTIGACIÓN II', ciclo: 10, req: ['inv1'], creditos: 4 },
+  { id: 'ctrl', nombre: 'CONTROL DE CALIDAD', ciclo: 10, req: [], creditos: 4 },
+  { id: 'metg', nombre: 'METAGENOMICA', ciclo: 10, req: ['mol'], creditos: 4 },
+  { id: 'trab', nombre: 'TRABAJO DE INVESTIGACIÓN', ciclo: 10, req: [], creditos: 2 }
+];
+
+const malla = document.getElementById("malla");
+
+for (let i = 1; i <= 10; i++) {
+  const ciclo = document.createElement("div");
+  ciclo.classList.add("ciclo");
+  const titulo = document.createElement("h2");
+  titulo.textContent = `Ciclo ${i}`;
+  ciclo.appendChild(titulo);
+
+  cursos.filter(c => c.ciclo === i).forEach(c => {
+    const div = document.createElement("div");
+    div.classList.add("curso");
+    div.dataset.id = c.id;
+    div.dataset.req = JSON.stringify(c.req);
+    div.innerHTML = `${c.nombre}<span class='credito'>(${c.creditos} créditos)</span>`;
+    if (c.req.length) div.classList.add("bloqueado");
+    ciclo.appendChild(div);
+  });
+  malla.appendChild(ciclo);
+}
+
+malla.addEventListener("click", function (e) {
+  const target = e.target.closest(".curso");
+  if (!target || target.classList.contains("bloqueado") || target.classList.contains("aprobado")) return;
+  target.classList.add("aprobado");
+  const id = target.dataset.id;
+
+  document.querySelectorAll(".curso.bloqueado").forEach(c => {
+    const req = JSON.parse(c.dataset.req);
+    const index = req.indexOf(id);
+    if (index !== -1) {
+      req.splice(index, 1);
+      c.dataset.req = JSON.stringify(req);
+      if (req.length === 0) c.classList.remove("bloqueado");
+    }
+  });
+});
